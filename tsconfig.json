@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "lib": [ "ES2018" ],
+        "module": "CommonJS",
+        "target": "ES3",
+        "strict": true,
+        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "build",
+        "moduleResolution": "node"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
