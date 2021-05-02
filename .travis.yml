@@ -7,14 +7,16 @@ addons:
   ssh_known_hosts: 134.209.31.56
 before_install:
 - mkdir ./ssh
+- openssl aes-256-cbc -K $encrypted_20e3456e327e_key -iv $encrypted_20e3456e327e_iv
+  -in deploy_rsa.enc -out ./ssh/deploy_rsa -d
 - openssl aes-256-cbc -K $encrypted_e8c214013cf0_key -iv $encrypted_e8c214013cf0_iv
   -in deploy_rsa.pub.enc -out ./ssh/deploy_rsa.pub -d
 - eval "$(ssh-agent -s)"
-- chmod 600 ./ssh/deploy_rsa.pub
-- ssh-add ./ssh/deploy_rsa.pub
-- echo "wow"
+- chmod 600 ./ssh/deploy_rsa
+- ssh-add ./ssh/deploy_rsa
 deploy:
   provider: script
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build duvarboun@134.209.31.56:/home/duvarboun/karacabot/build && ssh duvarboun@134.209.31.56 "cd karacabot && yarn install"
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build duvarboun@134.209.31.56:/home/duvarboun/karacabot/build
+    && ssh duvarboun@134.209.31.56 "cd karacabot && yarn install"
   on:
     branch: deploy
