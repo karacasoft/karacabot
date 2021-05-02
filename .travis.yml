@@ -17,6 +17,6 @@ before_install:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build duvarboun@134.209.31.56:/home/duvarboun/karacabot/build && ssh duvarboun@134.209.31.56 "cd karacabot && yarn install"
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build duvarboun@134.209.31.56:/home/duvarboun/karacabot/build && ssh duvarboun@134.209.31.56 "cd karacabot && npm install && sudo systemctl restart karacabot.service"
   on:
     branch: deploy
