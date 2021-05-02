@@ -16,7 +16,7 @@ before_install:
 - ssh-add ./ssh/deploy_rsa
 deploy:
   provider: script
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build duvarboun@134.209.31.56:/home/duvarboun/karacabot/build
-    && ssh duvarboun@134.209.31.56 "cd karacabot && yarn install"
+  skip_cleanup: true
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build duvarboun@134.209.31.56:/home/duvarboun/karacabot/build && ssh duvarboun@134.209.31.56 "cd karacabot && yarn install"
   on:
     branch: deploy
