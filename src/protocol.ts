@@ -4,9 +4,9 @@ import Greetings from "./greetings/greetings";
 import Karacasoft from "./karacasoft/karacasoft";
 
 const protocolCategories = [
-    Greetings,
-    Karacasoft,
     bogazicitv,
+    Karacasoft,
+    Greetings,
 ];
 
 const keyword = "KaracaBot ";
@@ -19,7 +19,6 @@ export function processMessage(msg: Message) {
             const prot = protocolCategories[protId];
             if(prot.filter(msg)) {
                 prot.action(msg);
-                break;
             }
         }
     }

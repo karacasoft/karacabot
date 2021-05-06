@@ -3,6 +3,7 @@ import { containsAll, findKaracaSoft, sleep, workdaysDiff } from "../util";
 
 
 function bogaziciTVFilter(msg: Message) {
+    console.log(msg.guild?.id);
     if(msg.guild?.id === "808639581703503872") {
         return true;
     }
