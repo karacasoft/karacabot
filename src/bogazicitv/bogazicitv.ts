@@ -15,9 +15,9 @@ function bogaziciTVAction(msg: Message) {
         const oneDay = 24 * 60 * 60 * 1000;
         const today = new Date(new Date().getTime() + (3 * 60 * 60 * 1000)); // convert to GMT+3 (add 3 hours)
         const nobetBaslama = new Date(2021, 0, 4);
-        const diffDays = Math.round(Math.abs((today.getTime() - nobetBaslama.getTime()) / oneDay));
+        const diffDays = Math.round(Math.abs((today.getTime() - nobetBaslama.getTime()) / oneDay)) - 1;
         
-        const nobetDays = workdaysDiff(nobetBaslama, today) - 1;
+        const nobetDays = workdaysDiff(nobetBaslama, today) - 6;
 
         (async () => {
             await msg.reply(`Bugün direnişin ${diffDays}, nöbetin ${nobetDays}. günü. ^^`);
