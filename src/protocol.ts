@@ -1,10 +1,8 @@
 import { Message } from "discord.js";
-import bogazicitv from "./bogazicitv/bogazicitv";
 import Greetings from "./greetings/greetings";
 import Karacasoft from "./karacasoft/karacasoft";
 
 const protocolCategories = [
-    bogazicitv,
     Karacasoft,
     Greetings,
 ];

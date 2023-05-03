@@ -1,5 +1,4 @@
 import { Client } from "discord.js";
-import { Long } from "typeorm";
 
 export function textContains(text: string, needle: string) {
     return text.indexOf(needle) !== -1;
